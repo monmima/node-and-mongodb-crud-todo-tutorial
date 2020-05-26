@@ -1,0 +1,25 @@
+{
+  "name": "mongodb_test",
+  "version": "1.0.0",
+  "description": "MongoDB Tutorial - CRUD app from scratch using Node.js By freeCodeCamp.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monmima/node-js-shopping-cart-tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monmima/node-js-shopping-cart-tutorial/issues"
+  },
+  "homepage": "https://github.com/monmima/node-js-shopping-cart-tutorial#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.7"
+  }
+}

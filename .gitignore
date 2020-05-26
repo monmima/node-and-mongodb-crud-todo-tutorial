@@ -1,0 +1,43 @@
+# Merci à https://github.com/heavymental33 #
+# Il a été légèrement modifié depuis #
+
+# Sources compilées #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Dossiers #
+###########
+node-modules/
+
+# Fichiers compressés #
+############
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs et bases de données #
+######################
+*.log
+*.sql
+*.sqlite
+
+# Fichiers générés par l’OS #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
