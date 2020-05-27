@@ -39,7 +39,9 @@ app.put("/:id", (req, res) => {
     });
 });
 
-app.put("/", (req, res) => {
+// create
+app.post("/", (req, res) => {
+    console.log("in post");
     const userInput = req.body;
 
     // connect to the database
@@ -53,10 +55,13 @@ app.put("/", (req, res) => {
     });
 });
 
+// delete
 app.delete("/:id", (req, res) => {
+    // Primary Key of Todo Document
     const todoID = req.params.id;
 
-    db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todo)}, (err, result) => {
+    // Find Document By ID and delete document from record
+    db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -64,6 +69,19 @@ app.delete("/:id", (req, res) => {
         }
     });
 });
+
+// //delete
+// app.delete('/:id',(req,res)=>{
+//     // Primary Key of Todo Document
+//     const todoID = req.params.id;
+//     // Find Document By ID and delete document from record
+//     db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err,result)=>{
+//         if(err)
+//             console.log(err);
+//         else
+//             res.json(result);
+//     });
+// });
 
 // connect to the database
 db.connect((err) => {
