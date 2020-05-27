@@ -22,6 +22,46 @@ app.get("/getTodos", (req, res) =>  {
     });
 });
 
+app.put("/:id", (req, res) => {
+    const todoID = req.params.id;
+    const userInput = req.body;
+
+    // connect to the database
+    db.getDB().collection(collection).findOneAndUpdate({_id: db.getPrimaryKey(todoID)}, {$set: {todo: userInput.todo}}, {returnOriginal: false}, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+app.put("/", (req, res) => {
+    const userInput = req.body;
+
+    // connect to the database
+    db.getDB().collection(collection).insertOne(userInput, (err, result) => {
+        // in production, you'll want to do more, like displaying an error message to the user
+        if (err) {
+            console.log(err);
+        } else {
+            res.json({result: result, document: result.ops[0]});
+        }
+    });
+});
+
+app.delete("/:id", (req, res) => {
+    const todoID = req.params.id;
+
+    db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todo)}, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
 // connect to the database
 db.connect((err) => {
     if (err) {
