@@ -76,6 +76,27 @@
                 todoUserInput.val("");
             }
 
+            const editTodo = (todo,todoID,editID)=>{
+                let editBtn = $(`#${editID}`);
+                editBtn.click(()=>{
+                    fetch(`/${todo._id}`,{
+                        method : "put",
+                        headers : {
+                            "Content-Type" : "application/json; charset=utf-8" 
+                        },
+                        body : JSON.stringify({todo : todoUserInput.val()})
+                    }).then((response)=>{
+                        return response.json();
+                    }).then((data)=>{
+                        if(data.ok == 1){
+                            let todoIndex = $(`#${todoID}`);
+                            todoIndex.html(data.value.todo);
+                            resetTodosInput();
+                        }
+                    });
+                });
+            }
+
             const buildIDS = (todo) => {
                 return {
                     editID: "edit_" + todo._id,
@@ -84,18 +105,18 @@
                     todoID: "todo_" + todo._id
                 }
             }
-
+            
             const buildTemplate = (todo, ids) => {
                 return `<li class="list-group-item" id="${ids.listItemID}">
-                    <div class="row">
-                        <div class="col-md-4" id="${ids.todoID}">${todo.todo}</div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4 text-right">
-                            <button type="button" class="btn btn-secondary" id="${ids.editID}">Edit</button>
-                            <button type="button" class="btn btn-danger" id="${ids.deleteID}">Delete</button>
-                        </div>
-                    </div>
-                </li>`;
+                            <div class="row">
+                                <div class="col-md-4" id="${ids.todoID}">${todo.todo}</div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 text-right">
+                                    <button type="button" class="btn btn-secondary" id="${ids.editID}">Edit</button>
+                                    <button type="button" class="btn btn-danger" id="${ids.deleteID}">Delete</button>
+                                </div>
+                            </div>
+                        </li>`;
             }
 
             const displayTodos = (data) => {
