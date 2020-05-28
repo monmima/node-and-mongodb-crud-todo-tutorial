@@ -23,7 +23,6 @@ app.get("/getTodos", (req, res) =>  {
     });
 });
 
-
 // update
 app.put("/:id", (req, res) => {
     const todoID = req.params.id;
@@ -53,6 +52,7 @@ app.post("/", (req, res) => {
             res.json({result: result, document: result.ops[0]});
         }
     });
+
 });
 
 // delete
@@ -69,19 +69,6 @@ app.delete("/:id", (req, res) => {
         }
     });
 });
-
-// //delete
-// app.delete('/:id',(req,res)=>{
-//     // Primary Key of Todo Document
-//     const todoID = req.params.id;
-//     // Find Document By ID and delete document from record
-//     db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err,result)=>{
-//         if(err)
-//             console.log(err);
-//         else
-//             res.json(result);
-//     });
-// });
 
 // connect to the database
 db.connect((err) => {

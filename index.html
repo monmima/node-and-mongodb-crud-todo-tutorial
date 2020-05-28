@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <form>
+                <form id="form">
                     <div class="form-group">
                         <label for="todo">Todo</label>
                         <input type="text" class="form-control" id="todoUserInput" placeholder="Todo">
@@ -107,32 +107,6 @@
                 });
             }
 
-            // form.submit((e) => {
-            //     console.log("in post index");
-            //     e.preventDefault();
-            //     fetch("/", {
-            //         method: "post",
-            //         body: JSON.stringify({todo: todoUserInput.val()}),
-            //         // headers tell the server what kind of content you're sending back
-            //         headers: {
-            //             "Content-Type": "application/json; charset=utf-8"
-            //         }
-            //     }).then((response) => {
-            //         return response.json();
-            //     }).then((data) => {
-            //         if (data.result.ok == 1 && data.result.n == 1) {
-            //             let ids = buildIDS(data.document);
-            //             display.append(buildTemplate(data.document, ids));
-            //             editTodo(data.document, ids.todoID, ids.editID);
-            //             deleteTodo(data.document, ids.listItemID, ids.deleteID);
-            //         }
-
-            //         resetTodosInput();
-            //     });
-            // });
-
-            // pedro
-
             form.submit((e)=>{
                 e.preventDefault();
                 fetch('/',{
@@ -162,6 +136,7 @@
             });
 
         });
+
     </script>
 </body>
 </html>
