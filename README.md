@@ -9,6 +9,6 @@ Many thanks to freeCodeCamp.org and NoobCoder/Pedro Mercado for creating this tu
 
 ## Joi
 
-This branch contains validation with Joi (which at 59:00 in Noobcoder's video).
+This branch contains validation with Joi (which starts at 59:00 in Noobcoder's video).
 
-21:45
+12:32

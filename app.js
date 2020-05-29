@@ -8,7 +8,7 @@ const collection = "todo";
 const app = express();
 
 const schema = Joi.object().keys({
-    todo: Joi.string.required()
+    todo: Joi.string().required()
 });
 
 app.use(bodyParser.json());
@@ -53,6 +53,7 @@ app.post("/", (req, res, next) => {
         if (err) {
             const error = new Error("Invalid Input");
             error.status = 400;
+            // handles middleware
             next(error);
         } else {
             // connect to the database
@@ -85,13 +86,13 @@ app.delete("/:id", (req, res) => {
     });
 });
 
-// middleware
+// custom error handler and custom middleware
 app.use((err, req, res, next) => {
     res.status(err.status).json({
         error: {
             message: err.message
         }
-    })
+    });
 });
 
 // connect to the database
