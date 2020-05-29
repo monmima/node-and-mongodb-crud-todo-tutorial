@@ -1,4 +1,4 @@
-# MongoDB Tutorial - CRUD app from scratch using Node.js
+# CRUD tutorial - MongoDB and Node.js with Noobcoder
 
 MongoDB Tutorial - CRUD app from scratch using Node.js
 
@@ -10,5 +10,3 @@ Many thanks to freeCodeCamp.org and NoobCoder/Pedro Mercado for creating this tu
 ## Joi
 
 This branch contains validation with Joi (which starts at 59:00 in Noobcoder's video).
-
-12:32
