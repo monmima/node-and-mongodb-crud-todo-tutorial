@@ -66,12 +66,12 @@
                 if (flag) {
                     message.removeClass("alert-danger");
                     message.addClass("alert-success");
-                    msg.html(msg);
+                    message.html(msg);
                     message.show();
                 } else {
                     message.removeClass("alert-success");
                     message.addClass("alert-danger");
-                    msg.html(msg);
+                    message.html(msg);
                     message.show();
                 }
             };
@@ -176,6 +176,7 @@
                             editTodo(data.document, ids.todoID, ids.editID);
                             deleteTodo(data.document, ids.listItemID, ids.deleteID);
                             displayMessage(true, data.msg);
+                        }
                     } else {
                         displayMessage(false, data.error.message);
                     }
